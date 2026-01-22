@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Beyond Automation — Infographic Summary</title>
+    <style>
+        :root {
+            --bg: #f6f8fc;
+            --panel: #ffffff;
+            --panel2: #f1f4fb;
+            --text: #0f172a;
+            --muted: #475569;
+            --line: #e2e8f0;
+
+            --good: #16a34a;
+            --warn: #ca8a04;
+            --bad: #dc2626;
+
+            --accent: #4f46e5;
+            --accent2: #0284c7;
+
+            --shadow: 0 10px 28px rgba(15, 23, 42, .08);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 600px at 20% -10%, rgba(143, 168, 255, .22), transparent 55%),
+                radial-gradient(900px 500px at 95% 10%, rgba(125, 227, 255, .16), transparent 50%),
+                radial-gradient(1200px 700px at 40% 120%, rgba(255, 124, 170, .10), transparent 55%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        a {
+            color: var(--accent2)
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 28px 18px 54px;
+        }
+
+        /* Header */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 18px;
+            align-items: stretch;
+            margin-bottom: 18px;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 18px;
+        }
+
+        .title {
+            font-size: clamp(22px, 3vw, 34px);
+            font-weight: 800;
+            letter-spacing: .2px;
+            margin: 0 0 8px;
+        }
+
+        .subtitle {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .chip {
+            font-size: 12px;
+            padding: 7px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: var(--panel2);
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .kpiGrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .kpi {
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: var(--panel2);
+            min-height: 88px;
+        }
+
+        .kpi h3 {
+            margin: 0 0 6px;
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 700;
+            letter-spacing: .3px;
+            text-transform: uppercase;
+        }
+
+        .kpi p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text);
+            font-weight: 650;
+        }
+
+        /* Sections */
+        .sectionTitle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 22px 4px 10px;
+            font-weight: 800;
+            letter-spacing: .2px;
+        }
+
+        .sectionTitle .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            box-shadow: 0 0 0 6px rgba(143, 168, 255, .12);
+        }
+
+        .grid2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .grid2 {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* Pipeline */
+        .pipeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        @media (max-width: 1000px) {
+            .pipeline {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width: 560px) {
+            .pipeline {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .step {
+            position: relative;
+            padding: 14px 14px 12px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: var(--panel2);
+            overflow: hidden;
+        }
+
+        .step:before {
+            content: "";
+            position: absolute;
+            inset: -40px -40px auto auto;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, rgba(125, 227, 255, .25), transparent 60%);
+            transform: rotate(20deg);
+        }
+
+        .step h4 {
+            margin: 0 0 6px;
+            font-size: 14px;
+            font-weight: 800
+        }
+
+        .step p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            margin-top: 10px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(143, 168, 255, .22);
+            color: var(--text);
+            background: rgba(143, 168, 255, .10);
+        }
+
+        /* Findings */
+        .findings {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .findings {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .finding {
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: var(--panel2);
+            padding: 14px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .finding h4 {
+            margin: 0 0 6px;
+            font-size: 14px;
+            font-weight: 850
+        }
+
+        .finding p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* Framework pillars */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        @media (max-width: 1100px) {
+            .pillars {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
+        @media (max-width: 700px) {
+            .pillars {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media (max-width: 460px) {
+            .pillars {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .pillar {
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: var(--panel2);
+            padding: 12px;
+            min-height: 118px;
+        }
+
+        .pillar b {
+            display: block;
+            margin: 2px 0 6px;
+            font-size: 13px
+        }
+
+        .pillar span {
+            color: var(--muted);
+            font-size: 12.5px
+        }
+
+        /* Tables (simple, readable) */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+        }
+
+        th,
+        td {
+            padding: 10px 10px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid var(--line);
+            font-size: 13px;
+        }
+
+        th {
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: .25px;
+            text-transform: uppercase;
+            background: var(--panel2);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 9px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            font-size: 12px;
+            color: var(--text);
+            background: #f8fafc;
+            white-space: nowrap;
+        }
+
+        .b-good {
+            border-color: rgba(124, 255, 178, .35);
+            background: rgba(124, 255, 178, .10)
+        }
+
+        .b-warn {
+            border-color: rgba(255, 208, 124, .35);
+            background: rgba(255, 208, 124, .10)
+        }
+
+        .b-bad {
+            border-color: rgba(255, 124, 170, .35);
+            background: rgba(255, 124, 170, .10)
+        }
+
+        /* Level 1.5 loop */
+        .loop {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .loop {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .codeLike {
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: #f8fafc;
+            padding: 14px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 12.5px;
+            color: var(--text);
+            overflow: auto;
+            line-height: 1.45;
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 12px;
+            opacity: .9;
+        }
+
+        .icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            display: grid;
+            place-items: center;
+            background: #ffffff;
+            flex: 0 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="card">
+                <h1 class="title">Beyond Automation: Rethinking Work, Creativity, and Governance in the Age of
+                    Generative AI</h1>
+                <p class="subtitle">
+                    Infographic summary of the paper’s methodological structure and key findings.
+                    <br /><span style="opacity:.85">Author: Haocheng Lin (UCL)</span>
+                </p>
+
+                <div class="chips" aria-label="Core dimensions">
+                    <span class="chip">Work & task composition</span>
+                    <span class="chip">Unequal diffusion & access</span>
+                    <span class="chip">UBI as stabiliser</span>
+                    <span class="chip">Alignment & content governance</span>
+                    <span class="chip">Inclusive AI Governance Framework</span>
+                    <span class="chip">Level 1.5 autonomy</span>
+                </div>
+
+                <!-- Grounding: abstract dimensions -->
+                <!-- Source: Abstract lines -->
+                <p class="note">
+                    Built directly from the paper’s abstract and conclusion (four dimensions; Level 1.5 autonomy;
+                    Inclusive AI Governance
+                    Framework).
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="kpiGrid">
+                    <div class="kpi">
+                        <h3>Method</h3>
+                        <p>Hybrid mixed-methods: quantitative labour-market simulation + qualitative
+                            organisational/policy analysis</p>
+                    </div>
+                    <div class="kpi">
+                        <h3>Signature construct</h3>
+                        <p>Level 1.5 autonomy (human “plan-and-validate” oversight)</p>
+                    </div>
+                    <div class="kpi">
+                        <h3>Governance output</h3>
+                        <p>Inclusive AI Governance Framework (5 dimensions)</p>
+                    </div>
+                    <div class="kpi">
+                        <h3>Core conclusion</h3>
+                        <p>Societal impact comes from interacting forces (labour, access, policy, alignment)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- METHODOLOGY PIPELINE -->
+        <div class="sectionTitle"><span class="dot"></span><span>Methodological structure</span></div>
+
+        <section class="card">
+            <div class="pipeline" role="list">
+                <div class="step" role="listitem">
+                    <h4>1) Quant: Task-exposure modelling</h4>
+                    <p>Estimate AI-driven task substitution across occupations using task-intensity indices.</p>
+                    <span class="tag">O*NET + OECD indices</span>
+                </div>
+
+                <div class="step" role="listitem">
+                    <h4>2) Quant: Sectoral diffusion mapping</h4>
+                    <p>Visualise uneven AI tool adoption across sectors and socio-demographic groups.</p>
+                    <span class="tag">Adoption & access metrics</span>
+                </div>
+
+                <div class="step" role="listitem">
+                    <h4>3) Qual: Policy + governance analysis</h4>
+                    <p>Compare national/corporate governance documents, strategies, and UBI schemes.</p>
+                    <span class="tag">Policy framework review</span>
+                </div>
+
+                <div class="step" role="listitem">
+                    <h4>4) Qual: Discourse & organisational ethnography</h4>
+                    <p>Theme analysis of discussions, reports, and testimonials on lived experience of AI at work.</p>
+                    <span class="tag">Discourse critique</span>
+                </div>
+            </div>
+
+            <p class="note">
+                These steps are explicitly listed in Sections 3.1–3.3 (quantitative + qualitative
+                components).
+            </p>
+
+            <div class="sectionTitle" style="margin-top:18px;">
+                <span class="dot"></span><span>Method integration: Level 1.5 autonomy</span>
+            </div>
+
+            <div class="loop">
+                <div>
+                    <div class="finding" style="margin-bottom:12px;">
+                        <div class="icon" aria-hidden="true">
+                            <!-- simple inline SVG -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M7 7h10M7 12h6M7 17h10" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>What Level 1.5 autonomy means</h4>
+                            <p>
+                                An intermediate autonomy stage: AI proposes/plans/validates, while humans retain final
+                                evaluative authority.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="finding">
+                        <div class="icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 3v4M12 17v4M4 12h4M16 12h4" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" opacity=".55" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Why it matters</h4>
+                            <p>
+                                Makes accountability and auditability “legible” by formalising the human–AI loop
+                                (accept/revise with constraints).
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="note">
+                        Definition + rationale are stated in Section 3.4, with Algorithm 1 as a conceptual interaction
+                        loop.
+                    </p>
+                </div>
+
+                <div class="codeLike" aria-label="Algorithm 1 (conceptual) — Level 1.5 autonomy loop">
+                    Input: Task T, HumanGoal G, Context C, Data D</br>
+                    Output: Recommendation R</br>
+                    <ol>
+                        <li>Initialise model A with constraints C and dataset D</li>
+                        <li>Interpret task T in relation to G</li>
+                        <li>while not Completed(T):</li>
+                        <ul>
+                            <li>A proposes output O based on D and C</li>
+                            <li>Human H evaluates O against contextual and ethical criteria</li>
+                            <li>if alignment_score(O, G) ≥ &alpha;:</li>
+                            <ol>
+                                <li>Accept O → R = O</li>
+                            </ol>
+                            <li>
+                                else:
+                            </li>
+                            <ol>
+                                <li>H provides feedback F</li>
+                                <li>A updates O using F</li>
+                            </ol>
+                        </ul>
+                        <li>Record decisions and feedback for auditability</li>
+                        <li>return R</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- KEY FINDINGS -->
+        <div class="sectionTitle"><span class="dot"></span><span>Key findings (4 core insights)</span></div>
+
+        <section class="card">
+            <div class="findings">
+                <div class="finding">
+                    <div class="icon" aria-hidden="true">⚙️</div>
+                    <div>
+                        <h4>1) Work transformation is non-uniform</h4>
+                        <p>
+                            Agentic systems alter task composition and productivity, but introduce uncertainty (opaque
+                            reasoning, intensified expectations).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <div class="icon" aria-hidden="true">📉</div>
+                    <div>
+                        <h4>2) Adoption is unequal (a “second-order” digital divide)</h4>
+                        <p>
+                            Uneven access to high-quality models, compute, and training determines who benefits across
+                            sectors and groups.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <div class="icon" aria-hidden="true">🛟</div>
+                    <div>
+                        <h4>3) UBI is a stabiliser, not a standalone fix</h4>
+                        <p>
+                            Positioned as a macroeconomic buffer within a broader governance ecosystem supporting
+                            transition and retraining.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <div class="icon" aria-hidden="true">🎭</div>
+                    <div>
+                        <h4>4) Alignment can suppress creativity and trust</h4>
+                        <p>
+                            Safety regimes may misclassify context, over-refuse, and exhibit sycophancy/inconsistency
+                            that undermines expression.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="note">
+                These four insights are stated in the Conclusion (Section 7).
+            </p>
+        </section>
+
+        <!-- GOVERNANCE FRAMEWORK -->
+        <div class="sectionTitle"><span class="dot"></span><span>Inclusive AI Governance Framework (5 dimensions)</span>
+        </div>
+
+        <section class="card">
+            <div class="pillars">
+                <div class="pillar">
+                    <b>Governance</b>
+                    <span>Regulatory, ethical, and organisational structures aligned with democratic values and
+                        accountability.</span>
+                </div>
+                <div class="pillar">
+                    <b>Skills development</b>
+                    <span>Ensure workers can thrive in hybrid human–AI workflows (beyond narrow technical
+                        upskilling).</span>
+                </div>
+                <div class="pillar">
+                    <b>Creativity preservation</b>
+                    <span>Safeguard autonomy and originality under alignment constraints and restrictive content
+                        policies.</span>
+                </div>
+                <div class="pillar">
+                    <b>Model design</b>
+                    <span>Transparency, contextual awareness, proportional safety; prevent echo chambers and sycophantic
+                        drift.</span>
+                </div>
+                <div class="pillar">
+                    <b>Economic security</b>
+                    <span>Integrate UBI as a stabilising mechanism inside a broader socio-technical system.</span>
+                </div>
+            </div>
+
+            <p class="note">
+                The five dimensions are defined at the start of Section 5 (Framework for Inclusive AI
+                Governance).
+            </p>
+        </section>
+
+        <!-- FAILURE MODES -->
+        <div class="sectionTitle"><span class="dot"></span><span>Observed model failure modes (behavioural risks)</span>
+        </div>
+
+        <section class="card">
+            <table aria-label="Failure modes and governance implications">
+                <thead>
+                    <tr>
+                        <th>Failure mode</th>
+                        <th>Observed pattern</th>
+                        <th>Governance implication</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge b-bad">Overconfidence</span></td>
+                        <td>Confident hallucinations</td>
+                        <td>Requires calibrated uncertainty</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge b-warn">Silent interruptions</span></td>
+                        <td>Generation stalls with no warning</td>
+                        <td>Transparency & safety signalling</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge b-warn">Factual fragility</span></td>
+                        <td>Incorrect historical outputs/infographics</td>
+                        <td>Need for factual robustness</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge b-warn">Sycophancy</span></td>
+                        <td>Repeats arguments instead of reasoning</td>
+                        <td>Anti-sycophancy training</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge b-bad">Echo chambers</span></td>
+                        <td>User-led reinforcement loops</td>
+                        <td>Diversity-of-output safeguards</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="note">
+                Summarised from Table 1 (failure modes, patterns, governance
+                implications).
+            </p>
+        </section>
+
+        <!-- GOVERNANCE MATRIX -->
+        <div class="sectionTitle"><span class="dot"></span><span>Inclusive AI Governance Matrix (autonomy × oversight ×
+                safeguards)</span></div>
+
+        <section class="card">
+            <p class="subtitle" style="margin-bottom:12px;">
+                A six-level autonomy spectrum (L0–L5) with governance requirements scaling non-linearly; Level 5 is
+                positioned as unacceptable in high-stakes domains.
+            </p>
+
+            <table aria-label="Inclusive AI Governance Matrix (condensed)">
+                <thead>
+                    <tr>
+                        <th>Autonomy level</th>
+                        <th>Oversight</th>
+                        <th>Primary governance focus</th>
+                        <th>UBI role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge">L0</span> No autonomy</td>
+                        <td>Full human control</td>
+                        <td>Baseline compliance (no AI risk)</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">L1</span> Assistive</td>
+                        <td>High</td>
+                        <td>Interpretability-by-default; transparency of suggestions</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">L2</span> Limited autonomy</td>
+                        <td>High</td>
+                        <td>Escalation protocols; accountability logs</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">L3</span> Semi-autonomous planning</td>
+                        <td>Medium</td>
+                        <td>Interpretability checkpoints; documented decision trails; proportionality</td>
+                        <td>Partial buffer (transition)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">L4</span> High autonomy (conditional escalation)</td>
+                        <td>Low–Medium</td>
+                        <td>Strong auditability; ethical review triggers; sector-specific guardrails</td>
+                        <td>Significant buffer + upskilling support</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge b-bad">L5</span> Full autonomy</td>
+                        <td>Very low</td>
+                        <td><b>Not acceptable</b> in sensitive/irreversible domains (accountability gap)</td>
+                        <td>UBI as stabilising baseline</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="note">
+                Condensed from Table 2 (Inclusive AI Governance Matrix) and the autonomy-level definitions in Section
+                5.2.
+            </p>
+        </section>
+
+        <!-- OPTIONAL: FUTURE DIRECTIONS -->
+        <div class="sectionTitle"><span class="dot"></span><span>Future research directions</span></div>
+        <section class="card">
+            <div class="grid2">
+                <div class="finding">
+                    <div class="icon" aria-hidden="true">📏</div>
+                    <div>
+                        <h4>Longitudinal creativity benchmarks</h4>
+                        <p>Track generational drift in narrative flexibility, contextual sensitivity, and originality.
+                        </p>
+                    </div>
+                </div>
+                <div class="finding">
+                    <div class="icon" aria-hidden="true">🗺️</div>
+                    <div>
+                        <h4>Adoption & equity taxonomy</h4>
+                        <p>Map AI-rich vs AI-poor environments and socio-demographic participation constraints.</p>
+                    </div>
+                </div>
+                <div class="finding">
+                    <div class="icon" aria-hidden="true">🧭</div>
+                    <div>
+                        <h4>Governance metrics for proportional safety</h4>
+                        <p>Measure over-triggering, context misclassification, uncertainty calibration, and refusal
+                            explainability.</p>
+                    </div>
+                </div>
+                <div class="finding">
+                    <div class="icon" aria-hidden="true">🧩</div>
+                    <div>
+                        <h4>Coherent research programme</h4>
+                        <p>Unify creativity benchmarks + equity maps + governance metrics into a testable agenda.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="note">
+                Future directions are outlined in Section 6 (benchmarks, equity taxonomy, governance
+                metrics).
+            </p>
+        </section>
+
+    </div>
+</body>
+
+</html>
